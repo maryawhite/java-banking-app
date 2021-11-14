@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class BankAccount {
     double balance;
-    BigDecimal bdBalance;
     double previousTransaction;
     String customerName;
     String customerId;
@@ -20,7 +19,7 @@ public class BankAccount {
     void deposit(double amount){
         if(amount != 0){
             balance = balance + amount;
-            BigDecimal bdBalance = BigDecimal.valueOf(balance);
+            System.out.println("You deposited " + amount + ". Your new balance is " + balance);
             previousTransaction = amount;
         }
     }
@@ -54,20 +53,20 @@ public class BankAccount {
 
     //method to show the menu
     void showMenu(){
-        char option = '\0';  //initialize a char with any value
+        char option = '\0';    //initialize a char with any value
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome " + customerName);
         System.out.println("Your id is " + customerId);
 
         do{
-            System.out.println("=========================================");
+            System.out.println("========================================");
             System.out.println("Enter an option");
             System.out.println("A. Check Balance");
             System.out.println("B. Deposit");
             System.out.println("C. Withdraw");
             System.out.println("D. Previous Transaction");
             System.out.println("E. Exit");
-            System.out.println("=========================================");
+            System.out.println("========================================");
             option = scanner.next().charAt(0);
 
             switch(option){
@@ -102,7 +101,7 @@ public class BankAccount {
                     System.out.println("Invalid Option. Please enter again.");
                     break;
             }
-        }while(option != 'E');
+        }while(option != 'E' && option != 'e');
         System.out.println("Thank you for using our service.");
     }
 
@@ -126,9 +125,8 @@ public class BankAccount {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello, enter your name.");
         String customerName = scanner.nextLine();
-        String cusID = customerName.toUpperCase().charAt(0) + generatingRandomAlphanumericString();
+        String cusID = customerName.toUpperCase().charAt(0) + generatingRandomAlphanumericString();   //this takes the first letter of the customer's name, converts it to uppercase, then concatenates a random 10 digit alphanumeric
         BankAccount object1 = new BankAccount(customerName, cusID);
         object1.showMenu();
     }
-
 }
