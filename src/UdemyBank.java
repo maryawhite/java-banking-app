@@ -63,12 +63,12 @@ public class UdemyBank {
     public boolean listCustomers(String branchName, boolean showTransactions) {
         UdemyBranch branch = findBranch(branchName);
         if(branch != null) {
-            System.out.println("Customer details for branch " + branch.getName());
+            System.out.println("Customers for branch " + branch.getName());
             ArrayList<UdemyCustomer> branchCustomers = branch.getCustomers();
             //the first loop will show all the customers for that branch
             for(int i = 0; i < branchCustomers.size(); i++) {
                 UdemyCustomer branchCustomer = branchCustomers.get(i);
-                System.out.println("Customer: " + branchCustomer.getCustomerName() + " [#" + (i+1) + "]");
+                System.out.println("Customer: " + branchCustomer.getCustomerName() + "[" + (i+1) + "]");
                 //the second loop will optionally show transactions
                 if(showTransactions) {
                     System.out.println("Transactions");

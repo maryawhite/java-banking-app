@@ -16,7 +16,7 @@ public class UdemyMain {
         bank.addCustomerTransaction("Adelaide", "Tim", 12.44);
         bank.addCustomerTransaction("Adelaide", "Mary", 1.65);
 
-//        bank.listCustomers("Adelaide", true);
+        bank.listCustomers("Adelaide", false);
         bank.listCustomers("Sydney", true);
 
         //test invalid data, if the branch doesn't exist
